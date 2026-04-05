@@ -8,7 +8,7 @@ public class AdvancedCutscene : MonoBehaviour
     public PlayableDirector director;
     public GameObject car;
 
-    public FadeController fade;
+    public UIFade fade;
     public CameraShake shake;
     public SlowMotion slowmo;
 
