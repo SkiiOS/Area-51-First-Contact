@@ -2,32 +2,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class FadeController : MonoBehaviour
+public class UIFade : MonoBehaviour
 {
-    public Image fadeImage;
+    public Image panel;
     public float duration = 1f;
 
-    public IEnumerator FadeIn()
+    void Awake()
     {
-        float t = 0;
-        while (t < duration)
-        {
-            t += Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, 1 - t / duration);
-            yield return null;
-        }
-        fadeImage.color = new Color(0, 0, 0, 0);
+        if (panel == null)
+            panel = GetComponent<Image>();
     }
 
-    public IEnumerator FadeOut()
+    public IEnumerator FadeIn() // hitam ? transparan
     {
-        float t = 0;
+        float t = 0f;
         while (t < duration)
         {
             t += Time.deltaTime;
-            fadeImage.color = new Color(0, 0, 0, t / duration);
+            float a = 1 - (t / duration);
+            panel.color = new Color(0, 0, 0, a);
             yield return null;
         }
-        fadeImage.color = new Color(0, 0, 0, 1);
+        panel.color = new Color(0, 0, 0, 0);
+    }
+
+    public IEnumerator FadeOut() // transparan ? hitam
+    {
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            float a = t / duration;
+            panel.color = new Color(0, 0, 0, a);
+            yield return null;
+        }
+        panel.color = new Color(0, 0, 0, 1);
+    }
+
+    void Start()
+    {
+        StartCoroutine(FadeIn());
     }
 }
