@@ -79,3 +79,10 @@ crashlytics-build.properties
 CLAUDE.md
 .cursor/
 .cursorrules
+Assets/Documentation/
+
+# Unity MCP (AI integration)
+MCPForUnity.json
+mcp.config.json
+Assets/MCP*
+Assets/Editor/MCP*
