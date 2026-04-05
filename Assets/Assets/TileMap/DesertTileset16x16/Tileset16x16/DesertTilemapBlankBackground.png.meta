@@ -82,21 +82,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -158,103 +158,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DesertTilemapBlankBackground_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 195
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f29fdb82e510903d0800000000000000
-      internalID: -3240056952994268881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DesertTilemapBlankBackground_1
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 193
-        width: 46
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9fe7c95a4401f4a30800000000000000
-      internalID: 4201594864382279417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DesertTilemapBlankBackground_2
-      rect:
-        serializedVersion: 2
-        x: 97
-        y: 193
-        width: 46
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 34b1e87cc17df10b0800000000000000
-      internalID: -5755645280149169341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DesertTilemapBlankBackground_3
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 195
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c93fb383393e070a0800000000000000
-      internalID: -6885753608806337636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: DesertTilemapBlankBackground_4
       rect:
         serializedVersion: 2
-        x: 193
-        y: 175
-        width: 16
-        height: 24
+        x: 194
+        y: 176
+        width: 14
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,12 +183,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 11
-        width: 224
-        height: 166
+        x: 48
+        y: 176
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -293,12 +205,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_6
       rect:
         serializedVersion: 2
-        x: 47
-        y: 175
-        width: 18
-        height: 18
+        x: 67
+        y: 176
+        width: 11
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -315,12 +227,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_7
       rect:
         serializedVersion: 2
-        x: 66
-        y: 175
-        width: 13
-        height: 14
+        x: 80
+        y: 176
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,12 +249,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_8
       rect:
         serializedVersion: 2
-        x: 79
-        y: 175
-        width: 18
-        height: 18
+        x: 97
+        y: 176
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -359,12 +271,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_9
       rect:
         serializedVersion: 2
-        x: 96
-        y: 175
-        width: 16
-        height: 16
+        x: 113
+        y: 176
+        width: 14
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -381,12 +293,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_10
       rect:
         serializedVersion: 2
-        x: 112
-        y: 175
+        x: 128
+        y: 176
         width: 16
-        height: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -403,12 +315,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_11
       rect:
         serializedVersion: 2
-        x: 127
-        y: 175
-        width: 34
-        height: 18
+        x: 164
+        y: 177
+        width: 9
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -425,12 +337,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_12
       rect:
         serializedVersion: 2
-        x: 163
+        x: 177
         y: 176
-        width: 11
-        height: 10
+        width: 13
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -447,12 +359,12 @@ TextureImporter:
       name: DesertTilemapBlankBackground_13
       rect:
         serializedVersion: 2
-        x: 176
-        y: 175
-        width: 15
-        height: 18
+        x: 50
+        y: 171
+        width: 4
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -466,45 +378,397 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DesertTilemapBlankBackground_14
+      name: DesertTilemapBlankBackground_16
       rect:
         serializedVersion: 2
-        x: 175
-        y: 0
-        width: 18
-        height: 17
+        x: 55
+        y: 165
+        width: 7
+        height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c424a73b808255300800000000000000
-      internalID: 240142172970173004
+      spriteID: 69b67639c3c38cb46bb882d5b94b2272
+      internalID: -1176669561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DesertTilemapBlankBackground_15
+      name: DesertTilemapBlankBackground_17
       rect:
         serializedVersion: 2
-        x: 207
-        y: 0
-        width: 17
-        height: 17
+        x: 65
+        y: 170
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: bc8d71bf8637c51d0800000000000000
-      internalID: -3360684327198795573
+      spriteID: 4f917d02e542d204c933c4d1ad8146ff
+      internalID: 1150918988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_18
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 162
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4978865a801f9b9438b0383ee65e5a16
+      internalID: -684471555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_19
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 167
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff86275e31da5f45a34d711a22672b7
+      internalID: -74402841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_20
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 168
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1467ef362c5183941b06c687fe2d59f5
+      internalID: 579503013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_21
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 162
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a634e24c8c53e4ab807ced2092e34c
+      internalID: 1427461575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_22
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 162
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9345ed206455ed43bebfcb1c613aff2
+      internalID: -1497264276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_23
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 168
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e19b8e1dfc2c24e8096c1f36a8bbde
+      internalID: -1292858463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_24
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 165
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fdaa9ce05fc9274c9c2d7f94de3a0c9
+      internalID: 1996268016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 169
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47801c873ec53f640b44e547f307e495
+      internalID: -1222745392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_26
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 162
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69bc539b34be44a4fb56e62f1424c301
+      internalID: 539067919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_27
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 162
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4cf07d58c131c2439dfad96efd7882f
+      internalID: 1813129551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_28
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 171
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec8bd96f888fcb42acb89a746b5be64
+      internalID: 571087900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_29
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 164
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69399f08ba9ee04daff9c6ae7afc1c9
+      internalID: -1227457983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_30
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 168
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc0fba5b9ddbf24b9412d52b98a0e04
+      internalID: 292919275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_31
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 163
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33232203161031b42be17f6be1e844fd
+      internalID: -1608389694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_0
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 176
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c91881fb7669e2d4caf88edd17edb9fa
+      internalID: -3240056952994268881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DesertTilemapBlankBackground_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 144
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da752a38953dc644b2b0bda08204a68
+      internalID: 4201594864382279417
       vertices: []
       indices: 
       edges: []
@@ -513,7 +777,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cf128320e22192e42b8f1bbb311e12cb
     internalID: 0
     vertices: []
     indices: 
@@ -521,7 +785,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       DesertTilemapBlankBackground_0: -3240056952994268881
       DesertTilemapBlankBackground_1: 4201594864382279417
@@ -531,8 +797,24 @@ TextureImporter:
       DesertTilemapBlankBackground_13: -7167058735237403626
       DesertTilemapBlankBackground_14: 240142172970173004
       DesertTilemapBlankBackground_15: -3360684327198795573
+      DesertTilemapBlankBackground_16: -1176669561
+      DesertTilemapBlankBackground_17: 1150918988
+      DesertTilemapBlankBackground_18: -684471555
+      DesertTilemapBlankBackground_19: -74402841
       DesertTilemapBlankBackground_2: -5755645280149169341
+      DesertTilemapBlankBackground_20: 579503013
+      DesertTilemapBlankBackground_21: 1427461575
+      DesertTilemapBlankBackground_22: -1497264276
+      DesertTilemapBlankBackground_23: -1292858463
+      DesertTilemapBlankBackground_24: 1996268016
+      DesertTilemapBlankBackground_25: -1222745392
+      DesertTilemapBlankBackground_26: 539067919
+      DesertTilemapBlankBackground_27: 1813129551
+      DesertTilemapBlankBackground_28: 571087900
+      DesertTilemapBlankBackground_29: -1227457983
       DesertTilemapBlankBackground_3: -6885753608806337636
+      DesertTilemapBlankBackground_30: 292919275
+      DesertTilemapBlankBackground_31: -1608389694
       DesertTilemapBlankBackground_4: 3546353525886504547
       DesertTilemapBlankBackground_5: -6330263037504626196
       DesertTilemapBlankBackground_6: 8332919033651247952
