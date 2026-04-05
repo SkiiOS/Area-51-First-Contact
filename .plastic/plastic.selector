@@ -1,4 +1,0 @@
-repository "GDGoc/GDGoC@18968411081667@cloud"
-  path "/"
-    br "/main"
-    co "/main"
