@@ -56,7 +56,7 @@ public class TilemapSortingLayerSetup : MonoBehaviour
         }
         else
         {
-            renderers = FindObjectsOfType<TilemapRenderer>(true);
+            renderers = FindObjectsByType<TilemapRenderer>(FindObjectsInactive.Include);
         }
 
         Debug.Log($"Found {renderers.Length} Tilemap Renderers");

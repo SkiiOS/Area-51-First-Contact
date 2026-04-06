@@ -120,7 +120,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -185,12 +185,12 @@ TextureImporter:
       name: Outfit5_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 16
-        height: 15
+        x: 9
+        y: 1
+        width: 14
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: Outfit5_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 1
-        width: 14
-        height: 15
+        x: 42
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -229,12 +229,12 @@ TextureImporter:
       name: Outfit5_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 1
-        width: 14
-        height: 15
+        x: 74
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -251,12 +251,12 @@ TextureImporter:
       name: Outfit5_3
       rect:
         serializedVersion: 2
-        x: 104
-        y: 0
-        width: 16
-        height: 15
+        x: 105
+        y: 1
+        width: 14
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -273,12 +273,12 @@ TextureImporter:
       name: Outfit5_4
       rect:
         serializedVersion: 2
-        x: 137
-        y: 1
-        width: 14
-        height: 15
+        x: 138
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -295,12 +295,12 @@ TextureImporter:
       name: Outfit5_5
       rect:
         serializedVersion: 2
-        x: 169
-        y: 1
-        width: 14
-        height: 15
+        x: 170
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: Outfit5_6
       rect:
         serializedVersion: 2
-        x: 203
-        y: 0
-        width: 9
-        height: 15
+        x: 204
+        y: 1
+        width: 7
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: Outfit5_7
       rect:
         serializedVersion: 2
-        x: 234
-        y: 2
-        width: 12
-        height: 14
+        x: 235
+        y: 3
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -361,12 +361,12 @@ TextureImporter:
       name: Outfit5_8
       rect:
         serializedVersion: 2
-        x: 265
-        y: 2
-        width: 14
-        height: 14
+        x: 266
+        y: 3
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -383,12 +383,12 @@ TextureImporter:
       name: Outfit5_9
       rect:
         serializedVersion: 2
-        x: 299
-        y: 0
-        width: 9
-        height: 15
+        x: 300
+        y: 1
+        width: 7
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -405,12 +405,12 @@ TextureImporter:
       name: Outfit5_10
       rect:
         serializedVersion: 2
-        x: 329
-        y: 2
-        width: 13
-        height: 14
+        x: 330
+        y: 3
+        width: 11
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -427,12 +427,12 @@ TextureImporter:
       name: Outfit5_11
       rect:
         serializedVersion: 2
-        x: 361
-        y: 3
-        width: 14
-        height: 13
+        x: 362
+        y: 4
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -449,12 +449,12 @@ TextureImporter:
       name: Outfit5_12
       rect:
         serializedVersion: 2
-        x: 392
-        y: 0
-        width: 16
-        height: 15
+        x: 393
+        y: 1
+        width: 14
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -471,12 +471,12 @@ TextureImporter:
       name: Outfit5_13
       rect:
         serializedVersion: 2
-        x: 425
-        y: 1
-        width: 14
-        height: 15
+        x: 426
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -493,12 +493,12 @@ TextureImporter:
       name: Outfit5_14
       rect:
         serializedVersion: 2
-        x: 457
-        y: 1
-        width: 15
-        height: 15
+        x: 458
+        y: 2
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -515,12 +515,12 @@ TextureImporter:
       name: Outfit5_15
       rect:
         serializedVersion: 2
-        x: 488
-        y: 0
-        width: 16
-        height: 15
+        x: 489
+        y: 1
+        width: 14
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -537,12 +537,12 @@ TextureImporter:
       name: Outfit5_16
       rect:
         serializedVersion: 2
-        x: 521
-        y: 1
-        width: 14
-        height: 15
+        x: 522
+        y: 2
+        width: 12
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -559,12 +559,12 @@ TextureImporter:
       name: Outfit5_17
       rect:
         serializedVersion: 2
-        x: 552
-        y: 1
-        width: 15
-        height: 15
+        x: 553
+        y: 2
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -581,12 +581,12 @@ TextureImporter:
       name: Outfit5_18
       rect:
         serializedVersion: 2
-        x: 588
-        y: 0
-        width: 9
-        height: 15
+        x: 589
+        y: 1
+        width: 7
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: Outfit5_19
       rect:
         serializedVersion: 2
-        x: 618
-        y: 2
-        width: 12
-        height: 14
+        x: 619
+        y: 3
+        width: 10
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -625,12 +625,12 @@ TextureImporter:
       name: Outfit5_20
       rect:
         serializedVersion: 2
-        x: 649
-        y: 2
-        width: 14
-        height: 14
+        x: 650
+        y: 3
+        width: 12
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -647,12 +647,12 @@ TextureImporter:
       name: Outfit5_21
       rect:
         serializedVersion: 2
-        x: 684
-        y: 0
-        width: 9
-        height: 15
+        x: 685
+        y: 1
+        width: 7
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -669,12 +669,12 @@ TextureImporter:
       name: Outfit5_22
       rect:
         serializedVersion: 2
-        x: 714
-        y: 2
-        width: 13
-        height: 14
+        x: 715
+        y: 3
+        width: 11
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -691,12 +691,12 @@ TextureImporter:
       name: Outfit5_23
       rect:
         serializedVersion: 2
-        x: 745
-        y: 3
-        width: 14
-        height: 13
+        x: 746
+        y: 4
+        width: 12
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -713,7 +713,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2e01f21ecb583d5468b97c4fa51c608c
     internalID: 0
     vertices: []
     indices: 
@@ -721,7 +721,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Outfit5_0: 4426230922946984154
       Outfit5_1: -1921321447097125056
