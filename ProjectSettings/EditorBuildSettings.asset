@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene Car.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Laboratorium.unity
+    guid: afbf62b8526da8147af44f98ff83ac80
+  - enabled: 1
+    path: Assets/Scenes/indor lab.unity
+    guid: 3367b71c490799b4f868be98e6842b43
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
