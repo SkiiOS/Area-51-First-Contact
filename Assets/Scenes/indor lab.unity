@@ -249,8 +249,8 @@ GameObject:
   - component: {fileID: 203781567}
   - component: {fileID: 203781566}
   - component: {fileID: 203781565}
-  - component: {fileID: 203781564}
   - component: {fileID: 203781563}
+  - component: {fileID: 203781564}
   - component: {fileID: 203781562}
   m_Layer: 0
   m_Name: Trigger
@@ -3094,6 +3094,10 @@ PrefabInstance:
     - target: {fileID: 668530712800486392, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
       propertyPath: m_Name
       value: Doctor
+      objectReference: {fileID: 0}
+    - target: {fileID: 668530712800486392, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7289362772854564139, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
       propertyPath: m_LocalPosition.x

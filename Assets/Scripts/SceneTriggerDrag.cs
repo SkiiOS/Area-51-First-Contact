@@ -31,6 +31,12 @@ public class SceneTriggerDrag : MonoBehaviour
     [Tooltip("Warna fade (biasanya hitam)")]
     public Color fadeColor = Color.black;
 
+    [Header("Spawn Settings")]
+    [Tooltip("Posisi spawn player di scene tujuan (opsional, kalau kosong pakai default scene)")]
+    public Vector3 spawnPositionOffset = Vector3.zero;
+    [Tooltip("Object untuk spawn point (drag GameObject ke sini)")]
+    public Transform spawnPoint;
+
     private Canvas fadeCanvas;
     private Image fadeImage;
     private static bool isFading = false;
@@ -88,20 +94,33 @@ public class SceneTriggerDrag : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(playerTag) && !isFading)
+        Debug.Log($"[TRIGGER] {gameObject.name} touched by: {other.name} | Tag: {other.tag} | IsTrigger: {other.isTrigger}");
+
+        if (isFading)
         {
-            if (useFade)
-            {
-                StartCoroutine(FadeOutAndLoad());
-            }
-            else if (transitionDelay > 0)
-            {
-                Invoke(nameof(LoadScene), transitionDelay);
-            }
-            else
-            {
-                LoadScene();
-            }
+            Debug.Log("[TRIGGER] Already fading, ignoring...");
+            return;
+        }
+
+        if (!other.CompareTag(playerTag))
+        {
+            Debug.Log($"[TRIGGER] Expected tag: {playerTag}, but got: {other.tag}");
+            return;
+        }
+
+        Debug.Log($"[TRIGGER] Player detected! Target scene: {sceneName}");
+
+        if (useFade)
+        {
+            StartCoroutine(FadeOutAndLoad());
+        }
+        else if (transitionDelay > 0)
+        {
+            Invoke(nameof(LoadScene), transitionDelay);
+        }
+        else
+        {
+            LoadScene();
         }
     }
 
@@ -163,6 +182,24 @@ public class SceneTriggerDrag : MonoBehaviour
         if (!string.IsNullOrEmpty(sceneName))
         {
             Debug.Log($"Loading scene: {sceneName}");
+
+            // Tentukan spawn position untuk scene tujuan
+            Vector3 spawnPos = Vector3.zero;
+            if (spawnPoint != null)
+            {
+                spawnPos = spawnPoint.position;
+            }
+            else if (spawnPositionOffset != Vector3.zero)
+            {
+                spawnPos = spawnPositionOffset;
+            }
+
+            // Simpan spawn position untuk scene berikutnya
+            if (spawnPos != Vector3.zero)
+            {
+                SceneTransitionManager.SetSpawnPosition(spawnPos, SceneManager.GetActiveScene().name);
+            }
+
             SceneManager.LoadScene(sceneName);
         }
         else
