@@ -32,10 +32,10 @@ public class SceneTriggerDrag : MonoBehaviour
     public Color fadeColor = Color.black;
 
     [Header("Spawn Settings")]
-    [Tooltip("Posisi spawn player di scene tujuan (opsional, kalau kosong pakai default scene)")]
-    public Vector3 spawnPositionOffset = Vector3.zero;
-    [Tooltip("Object untuk spawn point (drag GameObject ke sini)")]
-    public Transform spawnPoint;
+    [Tooltip("Nama object SpawnPoint di scene Tujuan (cari otomatis)")]
+    public string spawnPointName = "SpawnPoint";
+    [Tooltip("Offset dari spawn point (X, Y, Z)")]
+    public Vector3 spawnOffset = Vector3.zero;
 
     private Canvas fadeCanvas;
     private Image fadeImage;
@@ -181,24 +181,11 @@ public class SceneTriggerDrag : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(sceneName))
         {
-            Debug.Log($"Loading scene: {sceneName}");
+            Debug.Log($"[TRIGGER] Loading scene: {sceneName}");
+            Debug.Log($"[TRIGGER] Target spawn point: '{spawnPointName}' with offset: {spawnOffset}");
 
-            // Tentukan spawn position untuk scene tujuan
-            Vector3 spawnPos = Vector3.zero;
-            if (spawnPoint != null)
-            {
-                spawnPos = spawnPoint.position;
-            }
-            else if (spawnPositionOffset != Vector3.zero)
-            {
-                spawnPos = spawnPositionOffset;
-            }
-
-            // Simpan spawn position untuk scene berikutnya
-            if (spawnPos != Vector3.zero)
-            {
-                SceneTransitionManager.SetSpawnPosition(spawnPos, SceneManager.GetActiveScene().name);
-            }
+            // Simpan nama spawn point untuk dicari di scene tujuan
+            SceneTransitionManager.SetTargetSpawnPointName(spawnPointName, spawnOffset);
 
             SceneManager.LoadScene(sceneName);
         }
