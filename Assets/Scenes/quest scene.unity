@@ -398,8 +398,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 96f0481c1553845489c7f5491b798e6c, type: 2}
+  m_sharedMaterial: {fileID: -8653774610281839176, guid: 96f0481c1553845489c7f5491b798e6c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1827,19 +1827,19 @@ MonoBehaviour:
   textAffinity: {fileID: 1039466259}
   textStatus: {fileID: 124124282}
   daftarQuest:
-  - kodeAneh: F1R5T_C0NT4CT
+  - kodeAneh: FIRST CONTACT
     jawabanBenar: FIRST CONTACT
-  - kodeAneh: 4R34_51
+  - kodeAneh: AREA 51
     jawabanBenar: AREA 51
-  - kodeAneh: 4L13N_X
+  - kodeAneh: ALIEN
     jawabanBenar: ALIEN
-  - kodeAneh: G_D_G_O_C
+  - kodeAneh: GDGOC
     jawabanBenar: GDGOC
-  - kodeAneh: R4M_6GB
+  - kodeAneh: RAM 6GB
     jawabanBenar: RAM 6GB
-  - kodeAneh: S3CT10N_11
+  - kodeAneh: SECTION
     jawabanBenar: SECTION
-  - kodeAneh: L4B_0R4T0RY
+  - kodeAneh: LABOLATORY
     jawabanBenar: LABOLATORY
   currentAffinity: 0
   maxAffinity: 100

@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement; // TAMBAHKAN INI
 
 public class AffinityQuestSystem : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class AffinityQuestSystem : MonoBehaviour
     public int pointsPerCorrect = 20;
     public float typingSpeed = 0.05f;
 
+    [Header("Scene Transition")]
+    public string namaSceneTujuan; // Masukkan nama scene selanjutnya di Inspector
+    public float delaySebelumPindah = 2.0f; // Jeda waktu sebelum pindah scene
+
     private int correctCount = 0;
     private int totalNeed = 5;
     private int indexSekarang;
@@ -37,22 +42,18 @@ public class AffinityQuestSystem : MonoBehaviour
         UpdateUI();
     }
 
-    // --- FUNGSI BARU UNTUK INPUT FIELD ---
-    // Hubungkan On End Edit di Inspector ke fungsi ini
     public void OnInputEndEdit()
     {
-        // Hanya jalan jika yang ditekan adalah Enter
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             SubmitJawaban();
         }
     }
 
-    // --- FUNGSI UTAMA (Bisa dipanggil Tombol atau Enter) ---
     public void SubmitJawaban()
     {
         if (string.IsNullOrEmpty(inputJawaban.text)) return;
-        if (correctCount >= totalNeed) return;
+        if (currentAffinity >= maxAffinity) return; // Cek berdasarkan affinity
 
         string input = inputJawaban.text.Trim().ToUpper();
         string kunci = daftarQuest[indexSekarang].jawabanBenar.ToUpper();
@@ -63,7 +64,8 @@ public class AffinityQuestSystem : MonoBehaviour
             currentAffinity += pointsPerCorrect;
             textStatus.text = "<color=green>BENAR! +20 Affinity</color>";
 
-            if (correctCount >= totalNeed)
+            // Cek apakah Affinity sudah penuh
+            if (currentAffinity >= maxAffinity)
             {
                 FinishAllQuests();
             }
@@ -115,8 +117,27 @@ public class AffinityQuestSystem : MonoBehaviour
     void FinishAllQuests()
     {
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+
         textDisplayAcak.text = "SISTEM STABIL";
         textStatus.text = "<color=green>DATA TERSINKRONISASI 100%</color>";
         inputJawaban.interactable = false;
+
+        // Memulai proses pindah scene
+        StartCoroutine(TransitionToNextScene());
+    }
+
+    // Coroutine untuk memberi jeda sebelum pindah scene
+    IEnumerator TransitionToNextScene()
+    {
+        yield return new WaitForSeconds(delaySebelumPindah);
+
+        if (!string.IsNullOrEmpty(namaSceneTujuan))
+        {
+            SceneManager.LoadScene(namaSceneTujuan);
+        }
+        else
+        {
+            Debug.LogError("Nama Scene Tujuan belum diisi di Inspector!");
+        }
     }
 }
