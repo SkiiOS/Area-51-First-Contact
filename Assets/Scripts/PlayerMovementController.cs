@@ -5,95 +5,91 @@ using UnityEngine;
 public class PlayerMovementController_4Direction : MonoBehaviour
 {
     [Header("Character Stats (Composition)")]
-    [Tooltip("Referensi ke CharacterStats agar moveSpeed dan health diatur dari sana.")]
     public CharacterStats stats;
 
     [Header("References")]
-    [Tooltip("Animator dari Player.")]
     public Animator playerAnimator;
 
     private Rigidbody2D playerRigidbody2D;
     private Vector2 movementInputVector;
     private Vector2 lastMovementDirection;
-
-    // Parameter untuk Blend Tree Animator
-    private readonly string moveXParameter = "MoveX";
-    private readonly string moveYParameter = "MoveY";
-    private readonly string speedParameter = "Speed";
-    private readonly string lastMoveXParameter = "LastMoveX";
-    private readonly string lastMoveYParameter = "LastMoveY";
+    private bool isDead = false;
 
     private void Awake()
     {
         playerRigidbody2D = GetComponent<Rigidbody2D>();
+        if (playerAnimator == null) playerAnimator = GetComponent<Animator>();
 
-        if (playerAnimator == null)
-            playerAnimator = GetComponent<Animator>();
+        // Inisialisasi darah saat mulai
+        if (stats != null) stats.currentHealth = stats.maxHealth;
 
-        if (stats == null)
-            Debug.LogWarning("CharacterStats belum di-assign di Inspector!");
-
-        playerRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        playerRigidbody2D.gravityScale = 0;
+        playerRigidbody2D.freezeRotation = true;
     }
 
     private void Update()
     {
+        if (isDead) return;
         HandleInput();
         UpdateAnimatorParameters();
-
-        // Debug log only when moving to avoid spamming the console
-        if (movementInputVector.sqrMagnitude > 0.01f)
-        {
-            float effectiveSpeed = (stats != null) ? stats.moveSpeed : 3f;
-            Debug.Log($"Player moving: {movementInputVector} | Speed: {effectiveSpeed} | SqrMag: {movementInputVector.sqrMagnitude}");
-        }
     }
 
     private void FixedUpdate()
     {
+        if (isDead) { playerRigidbody2D.linearVelocity = Vector2.zero; return; }
         MovePlayer();
     }
 
     private void HandleInput()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        movementInputVector = new Vector2(horizontalInput, verticalInput);
-
-        if (movementInputVector.sqrMagnitude > 0.01f)
-        {
-            lastMovementDirection = movementInputVector.normalized;
-        }
-
-        movementInputVector = movementInputVector.normalized;
+        movementInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        if (movementInputVector.sqrMagnitude > 0.01f) lastMovementDirection = movementInputVector;
     }
 
     private void MovePlayer()
     {
-        // Gunakan kecepatan dari CharacterStats
         float speed = (stats != null) ? stats.moveSpeed : 3f;
-        Vector2 newPosition = (Vector2)transform.position + (movementInputVector * speed * Time.fixedDeltaTime);
-        playerRigidbody2D.MovePosition(newPosition);
+        playerRigidbody2D.linearVelocity = movementInputVector * speed;
     }
 
     private void UpdateAnimatorParameters()
     {
         float currentSpeed = movementInputVector.sqrMagnitude;
-
-        playerAnimator.SetFloat(moveXParameter, movementInputVector.x);
-        playerAnimator.SetFloat(moveYParameter, movementInputVector.y);
-        playerAnimator.SetFloat(speedParameter, currentSpeed);
+        playerAnimator.SetFloat("MoveX", movementInputVector.x);
+        playerAnimator.SetFloat("MoveY", movementInputVector.y);
+        playerAnimator.SetFloat("Speed", currentSpeed);
 
         if (currentSpeed > 0.01f)
         {
-            playerAnimator.SetFloat(lastMoveXParameter, movementInputVector.x);
-            playerAnimator.SetFloat(lastMoveYParameter, movementInputVector.y);
+            playerAnimator.SetFloat("LastMoveX", movementInputVector.x);
+            playerAnimator.SetFloat("LastMoveY", movementInputVector.y);
         }
         else
         {
-            playerAnimator.SetFloat(lastMoveXParameter, lastMovementDirection.x);
-            playerAnimator.SetFloat(lastMoveYParameter, lastMovementDirection.y);
+            playerAnimator.SetFloat("LastMoveX", lastMovementDirection.x);
+            playerAnimator.SetFloat("LastMoveY", lastMovementDirection.y);
         }
+    }
+
+    // FIX ERROR CS1503: Gunakan FLOAT di sini
+    public void TakeDamage(float damageAmount)
+    {
+        if (isDead || stats == null) return;
+
+        stats.TakeDamage(damageAmount);
+
+        // FIX ERROR CS1061: Pastikan currentHealth ada di CharacterStats
+        if (stats.currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        isDead = true;
+        playerAnimator.SetTrigger("Die");
+        GetComponent<Collider2D>().enabled = false;
+        Debug.Log("Player Mati!");
     }
 }
