@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - ALIEN
+  - computer
   layers:
   - Default
   - TransparentFX
