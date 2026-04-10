@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,13 +19,24 @@ public class PlayerMovementController_4Direction : MonoBehaviour
 
     private void Awake()
     {
+        // Mengambil komponen Rigidbody2D
         playerRigidbody2D = GetComponent<Rigidbody2D>();
-        if (playerAnimator == null) playerAnimator = GetComponent<Animator>();
 
-        // Inisialisasi darah saat mulai
-        if (stats != null) stats.currentHealth = stats.maxHealth;
+        // Cek Animator
+        if (playerAnimator == null)
+            playerAnimator = GetComponent<Animator>();
 
-        playerRigidbody2D.gravityScale = 0;
+        // --- TARUH DI SINI ---
+        if (stats != null)
+        {
+            // Reset HP jadi penuh setiap masuk scene agar saat restart darah tidak 0
+            stats.currentHealth = stats.maxHealth;
+        }
+        // ---------------------
+
+        // Setup Physics
+        playerRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+        playerRigidbody2D.gravityScale = 0f;
         playerRigidbody2D.freezeRotation = true;
     }
 
@@ -89,7 +102,28 @@ public class PlayerMovementController_4Direction : MonoBehaviour
     {
         isDead = true;
         playerAnimator.SetTrigger("Die");
-        GetComponent<Collider2D>().enabled = false;
-        Debug.Log("Player Mati!");
+
+        // Cari objek SceneFader dan jalankan animasinya
+        SceneFader fader = FindObjectOfType<SceneFader>();
+        if (fader != null)
+        {
+            // Tunggu sebentar agar animasi mati terlihat, baru fade out
+            StartCoroutine(ExecuteDeath(fader));
+        }
+        else
+        {
+            // Jika tidak ada fader, langsung restart seperti biasa
+            Invoke("RestartScene", 2f);
+        }
+    }
+
+    System.Collections.IEnumerator ExecuteDeath(SceneFader fader)
+    {
+        // Tunggu 1.5 detik agar animasi mati player selesai
+        yield return new WaitForSeconds(1.5f);
+
+        // Ganti "StartScene" dengan nama Scene Menu Utama kamu di Unity
+        // Pastikan tulisannya sama persis (Besar/Kecil hurufnya)
+        fader.FadeToScene("Start scene");
     }
 }

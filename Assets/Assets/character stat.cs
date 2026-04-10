@@ -12,4 +12,11 @@ public class CharacterStats : ScriptableObject
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
+
+    public float GetHealthPercentage()
+    {
+        if (maxHealth <= 0) return 0;
+        return currentHealth / maxHealth;
+    }
+
 }
