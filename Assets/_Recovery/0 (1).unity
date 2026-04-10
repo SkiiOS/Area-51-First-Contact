@@ -5913,8 +5913,8 @@ Tilemap:
   - first: {x: 18, y: 1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 20
-      m_TileSpriteIndex: 27
+      m_TileIndex: 23
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6373,8 +6373,8 @@ Tilemap:
   - first: {x: 28, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 20
-      m_TileSpriteIndex: 27
+      m_TileIndex: 23
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -6443,8 +6443,8 @@ Tilemap:
     m_RefCount: 0
     m_Data: {fileID: 11400000, guid: d69d9e8a479187c4ca817177d0e81183, type: 2}
   - serializedVersion: 2
-    m_RefCount: 2
-    m_Data: {fileID: 11400000, guid: 3ba00c7e89fd8e7478903baf7edce8e6, type: 2}
+    m_RefCount: 0
+    m_Data: {fileID: 11400000, guid: b1c992f5c14c01b409ed9a060dcebe38, type: 2}
   - serializedVersion: 2
     m_RefCount: 2
     m_Data: {fileID: 11400000, guid: be48d79bf3c7e68429f31bbd0802d2e6, type: 2}
@@ -6452,7 +6452,7 @@ Tilemap:
     m_RefCount: 1
     m_Data: {fileID: 11400000, guid: f3b30028a7198964ba08bb5f99e5f083, type: 2}
   - serializedVersion: 2
-    m_RefCount: 0
+    m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c348ce57304dcbf439ac0f3425c92bae, type: 2}
   - serializedVersion: 2
     m_RefCount: 13
@@ -6492,7 +6492,7 @@ Tilemap:
     m_RefCount: 4
     m_Data: {fileID: -1550649800, guid: 2b13d9a8179ba8a49b7bf44cc86949b9, type: 3}
   - serializedVersion: 2
-    m_RefCount: 2
+    m_RefCount: 4
     m_Data: {fileID: 1941120123, guid: 2b13d9a8179ba8a49b7bf44cc86949b9, type: 3}
   - serializedVersion: 2
     m_RefCount: 28
@@ -6552,7 +6552,7 @@ Tilemap:
     m_RefCount: 1
     m_Data: {fileID: -1706614427, guid: 2b13d9a8179ba8a49b7bf44cc86949b9, type: 3}
   - serializedVersion: 2
-    m_RefCount: 2
+    m_RefCount: 0
     m_Data: {fileID: 89282662, guid: 2b13d9a8179ba8a49b7bf44cc86949b9, type: 3}
   m_TileMatrixArray:
   - serializedVersion: 2
@@ -6651,8 +6651,8 @@ EdgeCollider2D:
   - {x: 28.564823, y: 5.3850107}
   - {x: 28.575087, y: -5.386687}
   - {x: 19.426355, y: -5.3870335}
-  - {x: 19.41626, y: -1.3975024}
-  - {x: 18.605728, y: -1.3622648}
+  - {x: 19.425516, y: -1.6381781}
+  - {x: 18.577957, y: -1.6399672}
   - {x: 18.572998, y: -2.3932369}
   - {x: 11.429116, y: -2.385293}
   - {x: 11.422448, y: -1.6777792}
