@@ -8360,10 +8360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b00d25c81ac9d047a8eabe4ffe29cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementController_4Direction
-  stats:
-    moveSpeed: 3
-    maxHealth: 100
+  stats: {fileID: 0}
   playerAnimator: {fileID: 1754917551}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  fireRate: 0.5
 --- !u!50 &1754917550
 Rigidbody2D:
   serializedVersion: 5

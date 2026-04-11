@@ -77,7 +77,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         // 2. Beri Damage ke Player
-        var pScript = player.GetComponent<PlayerMovementController_4Direction>();
+        var pScript = player.GetComponent<PlayerMoveControl>();
         if (pScript != null)
         {
             pScript.TakeDamage(attackDamage);
