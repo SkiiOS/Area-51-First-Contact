@@ -77,6 +77,7 @@ public class PlayerControllerFixed : MonoBehaviour
         {
             lastNonZeroInput = movementInput;
         }
+
     }
 
     void MoveCharacter()

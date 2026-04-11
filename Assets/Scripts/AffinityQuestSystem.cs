@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement; // TAMBAHKAN INI
+using UnityEngine.SceneManagement;
 
 public class AffinityQuestSystem : MonoBehaviour
 {
@@ -22,17 +22,16 @@ public class AffinityQuestSystem : MonoBehaviour
 
     [Header("Quest Data")]
     public List<QuestData> daftarQuest;
-    public int currentAffinity = 0;
+    public int currentAffinity = 20; // Mulai dari 20 agar tidak langsung kalah jika salah sekali
     public int maxAffinity = 100;
     public int pointsPerCorrect = 20;
-    public float typingSpeed = 0.05f;
+    public int pointsPerWrong = 20; // Poin yang dikurangi jika salah
 
-    [Header("Scene Transition")]
-    public string namaSceneTujuan; // Masukkan nama scene selanjutnya di Inspector
-    public float delaySebelumPindah = 2.0f; // Jeda waktu sebelum pindah scene
+    [Header("Scene Transitions")]
+    public float delaySebelumPindah = 2.0f;
+    public string sceneMenang = "EndingSelamat"; // Jika Affinity >= 100
+    public string sceneKalah = "EndingGagal";    // Jika Affinity < 0
 
-    private int correctCount = 0;
-    private int totalNeed = 5;
     private int indexSekarang;
     private Coroutine typingCoroutine;
 
@@ -53,42 +52,45 @@ public class AffinityQuestSystem : MonoBehaviour
     public void SubmitJawaban()
     {
         if (string.IsNullOrEmpty(inputJawaban.text)) return;
-        if (currentAffinity >= maxAffinity) return; // Cek berdasarkan affinity
+
+        // Cek apakah game sudah berakhir sebelumnya
+        if (currentAffinity >= maxAffinity || currentAffinity < 0) return;
 
         string input = inputJawaban.text.Trim().ToUpper();
         string kunci = daftarQuest[indexSekarang].jawabanBenar.ToUpper();
 
         if (input == kunci)
         {
-            correctCount++;
             currentAffinity += pointsPerCorrect;
-            textStatus.text = "<color=green>BENAR! +20 Affinity</color>";
-
-            // Cek apakah Affinity sudah penuh
-            if (currentAffinity >= maxAffinity)
-            {
-                FinishAllQuests();
-            }
-            else
-            {
-                inputJawaban.interactable = false;
-                Invoke("GenerateNewQuest", 1.2f);
-            }
+            textStatus.text = "<color=green>BENAR! +" + pointsPerCorrect + " Affinity</color>";
         }
         else
         {
-            textStatus.text = "<color=red>KODE SALAH!</color>";
-            inputJawaban.interactable = false;
-            Invoke("GenerateNewQuest", 1.2f);
+            currentAffinity -= pointsPerWrong;
+            textStatus.text = "<color=red>SALAH! -" + pointsPerWrong + " Affinity</color>";
         }
 
         UpdateUI();
+        inputJawaban.interactable = false;
+
+        // CEK PERCABANGAN ENDING
+        if (currentAffinity >= maxAffinity)
+        {
+            FinishGame(true);
+        }
+        else if (currentAffinity < 0)
+        {
+            FinishGame(false);
+        }
+        else
+        {
+            Invoke("GenerateNewQuest", 1.2f);
+        }
     }
 
     void GenerateNewQuest()
     {
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-
         indexSekarang = Random.Range(0, daftarQuest.Count);
 
         inputJawaban.interactable = true;
@@ -105,7 +107,7 @@ public class AffinityQuestSystem : MonoBehaviour
         foreach (char letter in textToType.ToCharArray())
         {
             textDisplayAcak.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
@@ -114,30 +116,38 @@ public class AffinityQuestSystem : MonoBehaviour
         textAffinity.text = $"Affinity Point: {currentAffinity}/{maxAffinity}";
     }
 
-    void FinishAllQuests()
+    void FinishGame(bool isWin)
     {
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
-
-        textDisplayAcak.text = "SISTEM STABIL";
-        textStatus.text = "<color=green>DATA TERSINKRONISASI 100%</color>";
         inputJawaban.interactable = false;
 
-        // Memulai proses pindah scene
-        StartCoroutine(TransitionToNextScene());
-    }
-
-    // Coroutine untuk memberi jeda sebelum pindah scene
-    IEnumerator TransitionToNextScene()
-    {
-        yield return new WaitForSeconds(delaySebelumPindah);
-
-        if (!string.IsNullOrEmpty(namaSceneTujuan))
+        if (isWin)
         {
-            SceneManager.LoadScene(namaSceneTujuan);
+            textDisplayAcak.text = "SISTEM STABIL";
+            textStatus.text = "<color=green>DATA TERSINKRONISASI 100%</color>";
+            StartCoroutine(TransitionRoutine(sceneMenang));
         }
         else
         {
-            Debug.LogError("Nama Scene Tujuan belum diisi di Inspector!");
+            textDisplayAcak.text = "SISTEM CRITICAL";
+            textStatus.text = "<color=red>KONEKSI TERPUTUS...</color>";
+            StartCoroutine(TransitionRoutine(sceneKalah));
+        }
+    }
+
+    IEnumerator TransitionRoutine(string namaScene)
+    {
+        yield return new WaitForSeconds(delaySebelumPindah);
+
+        // Jika ada SceneFader di scene, gunakan fader. Jika tidak, pakai SceneManager biasa
+        SceneFader fader = Object.FindFirstObjectByType<SceneFader>();
+        if (fader != null)
+        {
+            fader.FadeToScene(namaScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(namaScene);
         }
     }
 }

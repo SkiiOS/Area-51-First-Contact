@@ -1042,12 +1042,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 150542083}
   - {fileID: 153988794}
   - {fileID: 1039466257}
   - {fileID: 124124284}
   - {fileID: 872838196}
   - {fileID: 1620107800}
+  - {fileID: 150542083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1117,7 +1117,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1029759154
 GameObject:
@@ -1842,12 +1842,13 @@ MonoBehaviour:
     jawabanBenar: SECTION
   - kodeAneh: LABOLATORY
     jawabanBenar: LABOLATORY
-  currentAffinity: 0
+  currentAffinity: 10
   maxAffinity: 100
   pointsPerCorrect: 20
-  typingSpeed: 0.05
-  namaSceneTujuan: 
+  pointsPerWrong: 5
   delaySebelumPindah: 2
+  sceneMenang: Good Ending
+  sceneKalah: apocalypse ending scene
 --- !u!4 &1929278837
 Transform:
   m_ObjectHideFlags: 0

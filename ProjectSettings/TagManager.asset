@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ALIEN
   - computer
+  - Enemy
   layers:
   - Default
   - TransparentFX

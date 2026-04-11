@@ -39,12 +39,32 @@ public class PlayerMovementController_4Direction : MonoBehaviour
         playerRigidbody2D.gravityScale = 0f;
         playerRigidbody2D.freezeRotation = true;
     }
-
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float fireRate = 0.5f;
+    private float nextFireTime = 0f;
+    private Vector2 lastDir = Vector2.right;
     private void Update()
     {
         if (isDead) return;
         HandleInput();
         UpdateAnimatorParameters();
+        // Ambil input langsung di sini agar pasti ada nilainya
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        // Catat arah terakhir selama ada tombol yang ditekan
+        if (h != 0 || v != 0)
+        {
+            lastDir = new Vector2(h, v);
+        }
+
+        // Logika menembak
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
+        {
+            Shoot();
+            nextFireTime = Time.time + fireRate;
+        }
     }
 
     private void FixedUpdate()
@@ -114,8 +134,10 @@ public class PlayerMovementController_4Direction : MonoBehaviour
         {
             // Jika tidak ada fader, langsung restart seperti biasa
             Invoke("RestartScene", 2f);
+
         }
     }
+
 
     System.Collections.IEnumerator ExecuteDeath(SceneFader fader)
     {
@@ -125,5 +147,20 @@ public class PlayerMovementController_4Direction : MonoBehaviour
         // Ganti "StartScene" dengan nama Scene Menu Utama kamu di Unity
         // Pastikan tulisannya sama persis (Besar/Kecil hurufnya)
         fader.FadeToScene("Start scene");
+    }
+    void Shoot()
+    {
+        if (bulletPrefab != null && firePoint != null)
+        {
+            // Menghitung sudut dalam derajat berdasarkan arah terakhir (lastDir)
+            // Atan2 mengembalikan radian, lalu kita ubah ke derajat (Rad2Deg)
+            float angle = Mathf.Atan2(lastDir.y, lastDir.x) * Mathf.Rad2Deg;
+
+            // Terapkan rotasi ke firePoint berdasarkan sudut tersebut
+            firePoint.rotation = Quaternion.Euler(0, 0, angle);
+
+            // Munculkan peluru
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 }
