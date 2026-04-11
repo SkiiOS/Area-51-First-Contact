@@ -572,42 +572,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NarrativeController
   urutanNarasi:
-  - 'Dr. Berry menatap monitor dengan tangan gemetar. Di depannya, makhluk yang mereka
-    sebut Ambarukmo mengeluarkan suara berderit tajam seperti logam yang bergesekan.
-    Algoritma penerjemah di layar memunculkan kata: "MUSNAHKAN."'
-  - Panik menyambar Berry. Ia mengira Ambarukmo sedang memerintahkan kawanannya untuk
-    menyerang Bumi. Ketakutan membutakan logikanya. Tanpa menunggu lama, Berry menarik
-    tuas darurat untuk mengalirkan tegangan listrik tinggi ke dalam ruang isolasi.
-  - Namun, kejutan listrik itu tidak membunuhnya secara instan. Ambarukmo melolong
-    kesakitan, tubuhnya yang biasanya berpendar tenang kini berubah merah gelap.
-    Rasa sakit yang luar biasa membuatnya lepas kendali. Dalam ledakan amarah dan
-    insting bertahan hidup, Ambarukmo menghancurkan kaca kedap udara dan menerjang
-    ke arah Berry dengan kekuatan yang tak terkendali.
-  - '"Aku tidak punya pilihan!" teriak Berry sambil menghindar dari cakaran maut
-    itu.
-
-
-    Pergulatan singkat terjadi di tengah reruntuhan alat laboratorium
-    yang hancur. Dengan napas terengah dan insting bertahan hidup yang memuncak,
-    Berry meraih pipa besi tajam dari meja yang patah dan menghujamkannya tepat ke
-    pusat saraf Ambarukmo. Makhluk itu tersentak, suaranya perlahan mengecil menjadi
-    rintihan lemah, lalu ia ambruk tak bernyawa di lantai yang dingin.'
-  - 'Beberapa detik kemudian, suara beep lembut terdengar dari komputer yang masih
-    menyala di sudut ruangan. Algoritma penerjemah baru saja melakukan kalibrasi
-    ulang dan memperbaiki kesalahan pembacaan frekuensi.
-
-
-    Layar itu kini menampilkan
-    arti yang sebenarnya dari pesan terakhir yang dikirimkan Ambarukmo:
-
+  - suara "beep" lembut terdengar dari komputer yang masih menyala. Algoritma penerjemah
+    baru saja melakukan kalibrasi ulang dan memperbaiki kesalahan pembacaan frekuensi
+    sebelumnya.
+  - 'Layar itu kini menampilkan arti yang sebenarnya dari pesan terakhir si alien:
 
     "KAMI...
-    DATANG... UNTUK... MENYEMBUHKAN."'
-  - Berry jatuh terduduk di samping jasad Ambarukmo yang mulai mendingin. Kesalahpahaman
-    satu kata telah mengubah sebuah tawaran perdamaian menjadi tragedi berdarah yang
-    akan menghantuinya selamanya.
+    DATANG... UNTUK... MENYEMBUHKAN."
+
+
+    Berry jatuh terduduk di samping jasad
+    makhluk yang baru saja ia bunuh. Kesalahpahaman satu kata telah mengubah sebuah
+    tawaran perdamaian menjadi tragedi berdarah yang tak bisa ditarik kembali.'
   kecepatanFade: 1
-  jedaAntarTeks: 2
+  jedaAntarTeks: 15
   namaSceneTujuan: Start scene
   jedaSebelumPindah: 1
   tmpTeks: {fileID: 1087904570}
