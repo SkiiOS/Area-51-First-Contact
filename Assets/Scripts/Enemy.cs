@@ -14,9 +14,16 @@ public class EnemyAI : MonoBehaviour
     public BossHealthUI bossUI;
 
     [Header("Animations")]
-    public Animator anim; // Tarik komponen Animator ke sini di Inspector
-    public string attackTriggerName = "Attack"; // Nama parameter Trigger di Animator
-    public string moveBoolName = "isMoving";    // Nama parameter Bool di Animator (opsional)
+    public Animator anim;
+    public string attackTriggerName = "Attack";
+    public string moveBoolName = "isMoving";
+
+    [Header("Rotation Settings")]
+    public float rotationOffset = 0f;
+
+    [Header("Audio Settings")]
+    public AudioSource audioSource; // Slot untuk komponen AudioSource
+    public AudioClip attackSound;   // Slot untuk file sound effect menyerang
 
     private Transform player;
     private float nextAttackTime;
@@ -24,15 +31,13 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-
-        // Mencari Animator otomatis jika lupa narik di Inspector
         if (anim == null) anim = GetComponent<Animator>();
 
+        // Setup AudioSource otomatis jika lupa ditarik di Inspector
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
+        if (playerObj != null) player = playerObj.transform;
 
         if (bossUI != null)
         {
@@ -45,19 +50,17 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
+        RotateTowardsPlayer();
+
         float dist = Vector2.Distance(transform.position, player.position);
 
         if (dist > attackRange)
         {
-            // Bergerak mendekati player
             transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-
-            // Set animasi jalan jika ada
             if (anim != null) anim.SetBool(moveBoolName, true);
         }
         else
         {
-            // Berhenti jalan saat sudah di jarak serang
             if (anim != null) anim.SetBool(moveBoolName, false);
 
             if (Time.time >= nextAttackTime)
@@ -68,38 +71,44 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    void RotateTowardsPlayer()
+    {
+        Vector2 direction = player.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle + rotationOffset);
+    }
+
     void Attack()
     {
-        // 1. Jalankan Animasi Serang
-        if (anim != null)
-        {
-            anim.SetTrigger(attackTriggerName);
-        }
+        // 1. Jalankan Animasi
+        if (anim != null) anim.SetTrigger(attackTriggerName);
 
-        // 2. Beri Damage ke Player
-        var pScript = player.GetComponent<PlayerMoveControl>();
+        // 2. Jalankan Suara Menyerang
+        PlayAttackSound();
+
+        // 3. Beri Damage
+        PlayerMovementController pScript = player.GetComponent<PlayerMovementController>();
         if (pScript != null)
         {
             pScript.TakeDamage(attackDamage);
-            Debug.Log("Musuh Menyerang dengan Animasi!");
+            Debug.Log("Berhasil menyerang!");
+        }
+    }
+
+    // Fungsi internal untuk memutar suara
+    void PlayAttackSound()
+    {
+        if (audioSource != null && attackSound != null)
+        {
+            audioSource.PlayOneShot(attackSound);
         }
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-
-        // Opsional: Tambahkan anim.SetTrigger("Hurt") di sini jika ada animasi kena pukul
-
-        if (bossUI != null)
-        {
-            bossUI.UpdateBossHealth(currentHealth, maxHealth);
-        }
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (bossUI != null) bossUI.UpdateBossHealth(currentHealth, maxHealth);
+        if (currentHealth <= 0) Die();
     }
 
     [Header("Scene Transition")]
@@ -108,17 +117,9 @@ public class EnemyAI : MonoBehaviour
     void Die()
     {
         if (bossUI != null) bossUI.SetActive(false);
-
         SceneFader fader = Object.FindFirstObjectByType<SceneFader>();
-        if (fader != null)
-        {
-            fader.FadeToScene(nextSceneName);
-        }
-        else
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
-        }
-
+        if (fader != null) fader.FadeToScene(nextSceneName);
+        else UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
         Destroy(gameObject);
     }
 }

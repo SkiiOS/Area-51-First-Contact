@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bad Ending.unity
     guid: a8b59e7363db3964fa8fc68c5f0e6b90
+  - enabled: 1
+    path: Assets/Scenes/GUIDE BOOK.unity
+    guid: fa5328c05605e124498f76492bd3b27e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

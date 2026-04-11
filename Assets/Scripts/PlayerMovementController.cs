@@ -141,9 +141,23 @@ public class PlayerMovementController : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        if (isDead || stats == null) return;
-        stats.TakeDamage(damageAmount);
-        if (stats.currentHealth <= 0) Die();
+        if (isDead) return;
+
+        if (stats != null)
+        {
+            Debug.Log("1. Fungsi TakeDamage di Player terpanggil");
+            stats.TakeDamage(damageAmount);
+            Debug.Log("2. Darah di Stats sekarang: " + stats.currentHealth);
+
+            if (stats.currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+        else
+        {
+            Debug.LogError("STATS BELUM DIMASUKKAN KE INSPECTOR PLAYER!");
+        }
     }
 
     void Die()
