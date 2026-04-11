@@ -4826,6 +4826,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3405020134437785864, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
+      propertyPath: footstepClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1267abc831147534a8bf302c28a26748, type: 3}
+    - target: {fileID: 3405020134437785864, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
+      propertyPath: footstepAudioSource
+      value: 
+      objectReference: {fileID: 699431936}
     - target: {fileID: 7289362772854564139, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
@@ -4871,6 +4879,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
+--- !u!82 &699431936 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3314104326125611727, guid: 9aef22c1e34d5ec42912b310769ee347, type: 3}
+  m_PrefabInstance: {fileID: 699431935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &702287446
 GameObject:
   m_ObjectHideFlags: 0
