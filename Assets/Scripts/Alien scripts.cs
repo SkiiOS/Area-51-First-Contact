@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NPCAutoDialogue : MonoBehaviour
 {
@@ -10,30 +11,35 @@ public class NPCAutoDialogue : MonoBehaviour
 
     [Header("Settings")]
     public string playerTag = "Player";
-    public float typingSpeed = 0.05f; // Kecepatan mengetik per huruf
-    public float delayPerLine = 2.0f; // Jeda setelah satu baris selesai diketik
+    public float typingSpeed = 0.05f;
+    public float delayPerLine = 2.0f;
 
     [TextArea(3, 10)]
     public string[] dialogLines;
 
     [Header("Alien Animation (NPC)")]
-    // Tarik Animator si Alien (GameObject ini atau anaknya) ke sini
     public Animator alienAnimator;
-    public string alienIdleAnimation = "Alien_Idle"; // Nama state animasi Idle Alien
-    public string alienTalkAnimation = "Alien_Talk"; // Nama state animasi Bicara Alien
+    public string alienIdleAnimation = "Alien_Idle";
+    public string alienTalkAnimation = "Alien_Talk";
 
-    // --- VARIABEL UNTUK SCRIPT LAIN ---
+    [Header("Post-Dialogue Action")]
+    public bool matikanTriggerSetelahSelesai = true;
+    public bool hancurkanObjectSetelahSelesai = false;
+
     [HideInInspector]
     public bool isDialogueFinished = false;
 
     private bool hasTriggered = false;
+    private Collider2D triggerCollider;
 
     private void Awake()
     {
+        // Ambil referensi collider di awal
+        triggerCollider = GetComponent<Collider2D>();
+
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         isDialogueFinished = false;
 
-        // Pastikan alien mulai dengan animasi Idle
         if (alienAnimator != null) alienAnimator.Play(alienIdleAnimation);
     }
 
@@ -41,6 +47,7 @@ public class NPCAutoDialogue : MonoBehaviour
     {
         if (other.CompareTag(playerTag) && !hasTriggered)
         {
+            // Ambil komponen player untuk di-freeze
             MonoBehaviour movementScript = other.GetComponent<MonoBehaviour>();
             Animator playerAnim = other.GetComponent<Animator>();
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
@@ -53,24 +60,23 @@ public class NPCAutoDialogue : MonoBehaviour
     {
         hasTriggered = true;
 
-        // 1. FREEZE PLAYER
+        // 1. FREEZE PLAYER (Menggunakan linearVelocity untuk Unity 2023+)
         if (movement != null) movement.enabled = false;
         if (rb != null) rb.linearVelocity = Vector2.zero;
-        // Opsional: Matikan animator player atau set ke state Idle
         if (anim != null) anim.enabled = false;
 
         // 2. AKTIFKAN PANEL DIALOG
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
 
-        // 3. LOOPING DIALOG DENGAN EFEK MENGETIK & ANIMASI ALIEN
+        // 3. LOOPING DIALOG DENGAN EFEK MENGETIK
         foreach (string line in dialogLines)
         {
-            // ALIEN MULAI BICARA
+            // Ambarukmo mulai bicara
             if (alienAnimator != null) alienAnimator.Play(alienTalkAnimation);
 
             yield return StartCoroutine(TypeText(line));
 
-            // ALIEN KEMBALI IDLE SAAT JEDA
+            // Ambarukmo kembali idle saat jeda baca
             if (alienAnimator != null) alienAnimator.Play(alienIdleAnimation);
 
             yield return new WaitForSeconds(delayPerLine);
@@ -78,20 +84,27 @@ public class NPCAutoDialogue : MonoBehaviour
 
         // 4. SELESAI
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
+        isDialogueFinished = true;
 
-        // Pastikan Alien kembali Idle permanen setelah dialog usai
-        if (alienAnimator != null) alienAnimator.Play(alienIdleAnimation);
-
-        // Aktifkan kembali kontrol player
+        // Kembalikan kontrol player
         if (movement != null) movement.enabled = true;
         if (anim != null) anim.enabled = true;
 
-        // --- TRIGGER UNTUK SCRIPT LAIN ---
-        isDialogueFinished = true;
-        Debug.Log("Dialog Selesai! Script pindah scene sekarang diizinkan.");
-    }
+        // --- SOLUSI AGAR TIDAK TEMBUS ---
+        if (matikanTriggerSetelahSelesai)
+        {
+            if (triggerCollider != null)
+            {
+                // MATIKAN 'Is Trigger' agar Collider jadi solid (seperti tembok)
+                triggerCollider.isTrigger = false;
 
-    IEnumerator TypeText(string line)
+                // ATAU jika ingin benar-benar hilang/tidak bisa disentuh sama sekali:
+                // triggerCollider.enabled = false; 
+            }
+            Debug.Log("Trigger dimatikan, sekarang objek menjadi padat/solid.");
+        }
+    }
+        IEnumerator TypeText(string line)
     {
         dialogueText.text = "";
         foreach (char letter in line.ToCharArray())
