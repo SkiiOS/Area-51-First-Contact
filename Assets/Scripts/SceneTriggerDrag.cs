@@ -53,6 +53,9 @@ public class SceneTriggerDrag : MonoBehaviour
 
     void Start()
     {
+        // Reset status setiap kali masuk scene agar tidak "nyangkut"
+        isFading = false;
+
         // Setup fade canvas kalau belum ada
         if (useFade && fadeCanvas == null)
         {
@@ -60,7 +63,7 @@ public class SceneTriggerDrag : MonoBehaviour
         }
 
         // Fade in saat scene dimulai
-        if (useFade && !isFading)
+        if (useFade)
         {
             StartCoroutine(FadeIn());
         }
