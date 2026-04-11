@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.50980395}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.003921569}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1042,12 +1042,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 150542083}
   - {fileID: 153988794}
   - {fileID: 1039466257}
   - {fileID: 124124284}
   - {fileID: 872838196}
   - {fileID: 1620107800}
+  - {fileID: 150542083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1117,7 +1117,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1029759154
 GameObject:
@@ -1803,6 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1929278837}
   - component: {fileID: 1929278836}
+  - component: {fileID: 1929278838}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -1841,12 +1842,13 @@ MonoBehaviour:
     jawabanBenar: SECTION
   - kodeAneh: LABOLATORY
     jawabanBenar: LABOLATORY
-  currentAffinity: 0
+  currentAffinity: 10
   maxAffinity: 100
   pointsPerCorrect: 20
-  typingSpeed: 0.05
-  namaSceneTujuan: 
+  pointsPerWrong: 5
   delaySebelumPindah: 2
+  sceneMenang: Good Ending
+  sceneKalah: apocalypse ending scene
 --- !u!4 &1929278837
 Transform:
   m_ObjectHideFlags: 0
@@ -1862,6 +1864,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929278838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929278835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e22c398bfd6174f982a655b11b080f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIFade
+  panel: {fileID: 150542084}
+  duration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
