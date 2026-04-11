@@ -102,8 +102,8 @@ public class PlayerControllerFixed : MonoBehaviour
             animator.SetFloat(LastMoveYHash, lastNonZeroInput.y);
         }
 
-        // Handle flip (horizontal only) menggunakan localScale agar semua child ikut berbalik
-        HandleFlipAlternative();
+        // Handle flip dihapus karena sudah menggunakan animasi 4 arah (Blend Tree)
+        // HandleFlipAlternative();
     }
 
     void HandleFlip()
