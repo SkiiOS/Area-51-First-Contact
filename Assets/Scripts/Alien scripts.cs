@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Collections.Generic;
 
 public class NPCAutoDialogue : MonoBehaviour
 {
@@ -34,12 +33,8 @@ public class NPCAutoDialogue : MonoBehaviour
 
     private void Awake()
     {
-        // Ambil referensi collider di awal
         triggerCollider = GetComponent<Collider2D>();
-
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
-        isDialogueFinished = false;
-
         if (alienAnimator != null) alienAnimator.Play(alienIdleAnimation);
     }
 
@@ -47,38 +42,38 @@ public class NPCAutoDialogue : MonoBehaviour
     {
         if (other.CompareTag(playerTag) && !hasTriggered)
         {
-            // Ambil komponen player untuk di-freeze
             MonoBehaviour movementScript = other.GetComponent<MonoBehaviour>();
             Animator playerAnim = other.GetComponent<Animator>();
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
 
-            StartCoroutine(PlayDialogue(movementScript, playerAnim, rb));
+            // AMBIL AUDIO SOURCE PLAYER
+            AudioSource playerAudio = other.GetComponent<AudioSource>();
+
+            StartCoroutine(PlayDialogue(movementScript, playerAnim, rb, playerAudio));
         }
     }
 
-    IEnumerator PlayDialogue(MonoBehaviour movement, Animator anim, Rigidbody2D rb)
+    IEnumerator PlayDialogue(MonoBehaviour movement, Animator anim, Rigidbody2D rb, AudioSource audio)
     {
         hasTriggered = true;
 
-        // 1. FREEZE PLAYER (Menggunakan linearVelocity untuk Unity 2023+)
+        // 1. FREEZE PLAYER & MATIKAN SUARA
         if (movement != null) movement.enabled = false;
         if (rb != null) rb.linearVelocity = Vector2.zero;
         if (anim != null) anim.enabled = false;
 
+        // --- INI KUNCINYA: Matikan suara jalan ---
+        if (audio != null && audio.isPlaying) audio.Stop();
+
         // 2. AKTIFKAN PANEL DIALOG
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
 
-        // 3. LOOPING DIALOG DENGAN EFEK MENGETIK
+        // 3. LOOPING DIALOG
         foreach (string line in dialogLines)
         {
-            // Ambarukmo mulai bicara
             if (alienAnimator != null) alienAnimator.Play(alienTalkAnimation);
-
             yield return StartCoroutine(TypeText(line));
-
-            // Ambarukmo kembali idle saat jeda baca
             if (alienAnimator != null) alienAnimator.Play(alienIdleAnimation);
-
             yield return new WaitForSeconds(delayPerLine);
         }
 
@@ -90,21 +85,15 @@ public class NPCAutoDialogue : MonoBehaviour
         if (movement != null) movement.enabled = true;
         if (anim != null) anim.enabled = true;
 
-        // --- SOLUSI AGAR TIDAK TEMBUS ---
-        if (matikanTriggerSetelahSelesai)
+        if (matikanTriggerSetelahSelesai && triggerCollider != null)
         {
-            if (triggerCollider != null)
-            {
-                // MATIKAN 'Is Trigger' agar Collider jadi solid (seperti tembok)
-                triggerCollider.isTrigger = false;
-
-                // ATAU jika ingin benar-benar hilang/tidak bisa disentuh sama sekali:
-                // triggerCollider.enabled = false; 
-            }
-            Debug.Log("Trigger dimatikan, sekarang objek menjadi padat/solid.");
+            triggerCollider.isTrigger = false;
         }
+
+        if (hancurkanObjectSetelahSelesai) Destroy(gameObject);
     }
-        IEnumerator TypeText(string line)
+
+    IEnumerator TypeText(string line)
     {
         dialogueText.text = "";
         foreach (char letter in line.ToCharArray())
